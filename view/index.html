@@ -1,0 +1,122 @@
+<!doctype html>
+<html>
+
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta charset="utf-8">
+	<title> English to German Translator </title>
+	<link rel="stylesheet" type="text/css" href="style.css">
+	<script src="jquery-3.3.1.js"></script>
+</head>
+
+<body>
+	<p id="output"> </p>
+	<div class="mainContent">
+		<div id="title">
+			<p class="text"> English to German Translator</p>
+		</div>
+		<div id="buttons" class="ml15">
+			<button class="button" id='launch' onclick="launchfunc()">Launch</button>
+			<button class="button" id='evaluate' onClick="evaluatefunc()">Evaluate</button>
+			<button class="button" onClick="reversefunc()">Reverse Phrase Order</button>
+			<button class="button" onClick="epochfunc()">Set Epochs</button>
+		</div>
+		<p id="displayOutput">Display Output:</p>
+		<textarea id='content' name="content" style='overflow:auto;' readonly></textarea>
+		<img src="loading.gif" class="center" id="loading-image">
+	</div>
+
+	<script>
+		$(document).ready(function () {
+			$('#loading-image').hide();
+			$('#evaluate').css('pointer-events', 'none');
+			$('#evaluate').css('cursor', 'default');
+		});
+
+		function epochfunc() {
+			$('#content').html(" ");
+			var epochVal = prompt("Place epoch here (30 - 50):", " ");
+
+			regex = /^(?=.*[\d])[0-9]{2,}$/;
+
+			//checks the input to see if the input of the user meets the regluar expression
+			if (!regex.test(epochVal)) {
+				epochVal = "30";
+				$('#content').html("Please enter a Integer between 30 and 50 (inclusive)");
+			}
+			else if (epochVal > 50 || epochVal < 30) {
+				epochVal = "30";
+				$('#content').html("Please enter a Integer between 30 and 50 (inclusive)");
+			}
+			else {
+				$('#content').html("epoch has now been changed to " + epochVal);
+			}
+
+
+			$.ajax({
+				type: 'GET',
+				url: 'http://localhost:8080/epoch?epoch=' + epochVal,
+				dataType: 'text'
+			})
+
+		}
+
+		function launchfunc() {
+			$('#content').html(" ");
+			$('#loading-image').show();
+			$('#launch').css('pointer-events', 'none');
+			$('#launch').css('cursor', 'default');
+
+			$.ajax({
+				type: 'GET',
+				url: 'http://localhost:8080/launch',
+				dataType: 'text'
+			})
+				.done(function (data) {
+					$('#loading-image').hide();
+					$('#content').html(data);
+					$('#launch').css('pointer-events', 'auto');
+					$('#evaluate').css('pointer-events', 'auto');
+					$('#launch').css('cursor', 'pointer');
+					$('#evaluate').css('cursor', 'pointer');
+				});
+		}
+
+		function evaluatefunc() {
+			$('#content').html(" ");
+			$('#loading-image').show();
+			$('#launch').css('pointer-events', 'none');
+			$('#launch').css('cursor', 'default');
+			$('#evaluate').css('pointer-events', 'none');
+			$('#evaluate').css('cursor', 'default');
+
+			$.ajax({
+				type: 'GET',
+				url: 'http://localhost:8080/evaluate',
+				dataType: 'text'
+			})
+				.done(function (data) {
+					$('#loading-image').hide();
+					$('#content').html(data);
+					$('#launch').css('pointer-events', 'auto');
+					$('#evaluate').css('pointer-events', 'auto');
+					$('#launch').css('cursor', 'pointer');
+					$('#evaluate').css('cursor', 'pointer');
+				});
+		}
+
+		function reversefunc() {
+			$('#content').html(" ");
+
+			$.ajax({
+				type: 'GET',
+				url: 'http://localhost:8080/reverse',
+				dataType: 'text'
+			})
+			$('#content').html("The data file has successfully been reversed ");
+		}
+
+	</script>
+</body>
+
+</html>

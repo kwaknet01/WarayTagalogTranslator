@@ -1,0 +1,247 @@
+
+body {
+    background-image:url(street.png);
+}
+
+.mainContent {
+    position: relative;
+    width: 80%;
+    height:710px;
+    margin-left: 10%;
+    margin-right: 10%;
+    margin-top: 1%;
+    border: 1px solid black;
+    background: -webkit-linear-gradient(left, #A0EAFF, #928EFF);
+    background: -o-linear-gradient(left, #A0EAFF, #928EFF);
+    background: -moz-linear-gradient(left, #A0EAFF, #928EFF);
+    border-radius: 12px;
+}
+
+
+#title {
+    position: relative;
+    text-align: center;
+    font-family: "HelloEtchASketch";
+    text-shadow: 2px 2px rgb(168, 84, 255);
+    color: #353535;
+    font-size: 55px;
+}
+
+#displayOutput {
+    margin-left: 3%;
+    color: #353535;
+    font-family: "Myriad Pro Light";
+    letter-spacing: 2px;
+}
+
+.ml15 {
+    margin-left: 16%;
+}
+
+.center {
+    display: block;
+margin-left: auto;
+margin-right: auto;
+width: 40%;
+position: absolute;
+left: 350px;
+top: 350px;
+height: 40%;
+}
+
+.button {
+    display: inline-block;
+    padding: 15px 25px;
+    font-size: 24px;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    outline: none;
+    color: #353535;
+    background-color: #82FAFF;
+    border: none;
+    border-radius: 15px;
+    box-shadow: 0 9px #999;
+  }
+  
+  .button:hover {background-color: #00FFFF}
+  
+  .button:active {
+    background-color: #0CCEFF;
+    box-shadow: 0 5px #666;
+    transform: translateY(4px);
+  }
+
+#content {
+    position: relative;
+    margin-top: 1%;
+    margin-left: 7%;
+    margin-right: 2%;
+    margin-bottom: 2%;
+    height: 55%;
+    width: 85%;
+    border-color: -moz-linear-gradient(left, #A0EAFF, #928EFF);
+    border-radius: 9px;
+    font-family: "Myriad Pro Light";
+    color: #353535;
+}
+
+@media  (max-width: 323px) {
+    .button {
+        width: 87%;
+        margin-bottom: 1%;
+    }
+    
+    .mainContent {
+        height: 575px;
+        margin-left: 0%;
+        width: 100%;
+    }
+    
+    .text {
+        font-size: 25px;
+    }
+    
+    .center {
+        top: 49.5%;
+        left: 30%;
+    }
+    
+    #content {
+        height: 40%;
+    }
+    
+    .button {
+        padding: 7px 15px;
+        font-size: 15px;
+    }
+}
+    
+@media (min-width: 324px) and (max-width: 372px) {
+    .button {
+        width: 87%;
+        margin-bottom: 1%;
+    }
+    
+    .mainContent {
+        height: 680px;
+        margin-left: 0%;
+        width: 100%;
+    }
+    
+    .text {
+        font-size: 25px;
+    }
+    
+    .center {
+        top: 44.7%;
+        left: 30%;
+    }
+    
+    #content {
+        height: 46%;
+    }
+    
+    .button {
+        padding: 7px 15px;
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 373px) and (max-width: 425px) {
+    .button {
+        width: 75%;
+        margin-bottom: 1%;
+    }
+    
+    .mainContent {
+        height: 680px;
+    }
+    
+    .text {
+        font-size: 25px;
+    }
+    
+    .center {
+        top: 45%;
+        left: 30%;
+    }
+    
+    #content {
+        height: 45%;
+    }
+    
+    .button {
+        padding: 7px 15px;
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 426px) and (max-width: 767px) { 
+    .button {
+        width: 45%;
+        margin-bottom: 1%;
+    }
+    
+    .mainContent {
+        height: 620px;
+    }
+    
+    .text {
+        font-size: 50px;
+    }
+    
+    .center {
+        top: 310px;
+        left: 30%;
+    }
+    
+    #content {
+        height: 45%;
+    }
+    
+    .button {
+        padding: 7px 15px;
+        font-size: 15px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1190px) {
+.button {
+    width: 35%;
+    margin-bottom: 1%;
+}
+
+.mainContent {
+    height: 840px;
+}
+
+.text {
+    font-size: 50px;
+}
+
+.center {
+    top: 385px;
+    left: 30%;
+}
+
+#content {
+    height: 50%;
+}
+
+.button {
+    padding: 7px 15px;
+    font-size: 15px;
+}
+}
+
+@media (min-width: 1191px) and (max-width: 1440px) {
+
+    .mainContent {
+        height: 820px;
+    }
+
+    .center {
+        left: 30%;
+    }
+}

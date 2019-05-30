@@ -1,0 +1,1 @@
+I did all of my testing on FireFox as Chrome wasn't working well with my code. So please use FireFox for the best performance. Thank you.
